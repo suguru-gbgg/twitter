@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/hoge.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'public/build/assets/twitter.js'])
 </head>
 <body>
     <div id="app">

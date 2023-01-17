@@ -16,11 +16,11 @@ class MainController extends Controller
 
             $tasks = new Task();
 
-            $a = "text".$i;
-            $b = $Request->$a;
+            $jsname = "text".$i;
+            $jstext = $Request->$jsname;
 
             $tasks->user_id = Auth::user()->id;
-            $tasks->text = $b;
+            $tasks->text = $jstext;
 
             $tasks->save();
         }
