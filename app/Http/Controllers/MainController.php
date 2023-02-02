@@ -20,10 +20,20 @@ class MainController extends Controller
             $jstext = $Request->$jsname;
 
             $tasks->user_id = Auth::user()->id;
+            $tasks->user_name = Auth::user()->name;
             $tasks->text = $jstext;
 
             $tasks->save();
         }
-        return view('index');
+        $dbtexts = Task::where('user_id', '=', Auth::user()->id)->get();
+
+        return view('index' ,compact('dbtexts'));
+    }
+
+    public function front(Request $Request)
+    {
+        $dbtexts = Task::where('user_id', '=', Auth::user()->id)->get();
+       
+        return view('index' ,compact('dbtexts'));
     }
 } 
