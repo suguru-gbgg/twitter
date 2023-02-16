@@ -16,8 +16,8 @@ class MainController extends Controller
 
             $tasks = new Task();
 
-            $js_name = "text".$i;
-            $post_text = $Request->$js_name;
+            $post_name = "text".$i;
+            $post_text = $Request->$post_name;
 
             $tasks->user_id = Auth::user()->id;
             $tasks->user_name = Auth::user()->name;
