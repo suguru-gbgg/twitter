@@ -19,11 +19,11 @@
 @csrf
   <ul class="parent">
     <?php $i=0; ?>
-    @foreach ($dbtexts as $dbtext)
+    @foreach ($db_texts as $db_text)
       <div class="card my-3 mx-auto" style="width: 20rem;">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">{{ $dbtext->user_name }}</li>
-          <li class="list-group-item text-center">{{ $dbtext->text }}
+          <li class="list-group-item text-center">{{ $db_text->user_name }}</li>
+          <li class="list-group-item text-center">{{ $db_text->text }}
             <div class="dropdown">
               <h7 class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></h7>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
