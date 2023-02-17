@@ -25,3 +25,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/MainController', [App\Http\Controllers\MainController::class, 'insert'])->name('insert');
+Route::get('/index', [App\Http\Controllers\MainController::class, 'front'])->name('front');

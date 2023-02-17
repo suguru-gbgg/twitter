@@ -16,14 +16,24 @@ class MainController extends Controller
 
             $tasks = new Task();
 
-            $jsname = "text".$i;
-            $jstext = $Request->$jsname;
+            $post_name = "text".$i;
+            $post_text = $Request->$post_name;
 
             $tasks->user_id = Auth::user()->id;
-            $tasks->text = $jstext;
+            $tasks->user_name = Auth::user()->name;
+            $tasks->text = $post_text;
 
             $tasks->save();
         }
-        return view('index');
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->get();
+
+        return view('index' ,compact('dbtexts'));
+    }
+
+    public function front(Request $Request)
+    {
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->get();
+       
+        return view('index' ,compact('dbtexts'));
     }
 } 
