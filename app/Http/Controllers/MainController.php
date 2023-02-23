@@ -10,30 +10,22 @@ class MainController extends Controller
 {
     public function insert(Request $Request)
     {
-        Task::where('user_id', '=', Auth::user()->id)->delete();
+        $tasks = new Task();
 
-        for ($i = 0; $i <= $Request->count; $i++){
+        $tasks->user_id = Auth::user()->id;
+        $tasks->user_name = Auth::user()->name;
+        $tasks->text = $Request->text;
 
-            $tasks = new Task();
+        $tasks->save();
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
 
-            $post_name = "text".$i;
-            $post_text = $Request->$post_name;
-
-            $tasks->user_id = Auth::user()->id;
-            $tasks->user_name = Auth::user()->name;
-            $tasks->text = $post_text;
-
-            $tasks->save();
-        }
-        $db_texts = Task::where('user_id', '=', Auth::user()->id)->get();
-
-        return view('index' ,compact('dbtexts'));
+        return view('index' ,compact('db_texts'));
     }
 
     public function front(Request $Request)
     {
         $db_texts = Task::where('user_id', '=', Auth::user()->id)->get();
        
-        return view('index' ,compact('dbtexts'));
+        return view('index' ,compact('db_texts'));
     }
 } 
