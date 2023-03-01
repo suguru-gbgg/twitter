@@ -24,7 +24,7 @@ class MainController extends Controller
 
     public function front(Request $Request)
     {
-        $db_texts = Task::where('user_id', '=', Auth::user()->id)->get();
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
        
         return view('index' ,compact('db_texts'));
     }
