@@ -2,22 +2,21 @@
 
 @section('content')
 <div class="container">
-  <ul class="parent">
-    <div class="mx-auto"  style="width: 20rem">
+  <form action="MainController" method="post">
+  @csrf
+    <div class="mx-auto" style="width: 20rem">
       <div class="card">
         <div class="card-body text-center">
           <p class="card-text">
             <textarea id="text" cols="33" rows="5" class="text-center" value="" name="text"></textarea>
           </p>
-          <button type="button" id="addbtn" class="btn btn-outline-primary text-center">ツイート</a>
+          <input type="hidden" name="user_name" value="{{ Auth::user()->name; }}" id="user_name">
+          <button type="submit" id="addbtn" class="btn btn-outline-primary text-center">ツイート</a>
         </div>
+      </div>
     </div>
-  </ul>
-</div>
-
-<form action="MainController" method="post">
-@csrf
-  <ul class="parent">
+  </form>
+  <div class="parent">
     <?php $i=0; ?>
     @foreach ($db_texts as $db_text)
       <div class="card my-3 mx-auto" style="width: 20rem;">
@@ -35,7 +34,6 @@
         </ul>
       </div>
     @endforeach 
-  </ul>
-</form>
+  </div>
 </div>
 @endsection
