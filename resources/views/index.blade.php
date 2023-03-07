@@ -23,11 +23,17 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-center">{{ $db_text->user_name }}</li>
           <li class="list-group-item text-center">{{ $db_text->text }}
+            <input type="text" value="{{ $db_text->id }}" name="text_id">
             <div class="dropdown">
               <h7 class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></h7>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">詳細</a></li>
-                <li><a class="dropdown-item" href="#">削除</a></li>
+                <form action="shousai" method="post">
+                @csrf
+                  <li><button type="submit" class="dropdown-item">詳細</button></li>
+                </form>
+                <form action="delete" method="post">
+                  <li><button type="submit" class="dropdown-item">削除</a></li>
+                </form>
               </ul>
             </div>
           </li>
