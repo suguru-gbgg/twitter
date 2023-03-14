@@ -31,12 +31,11 @@ class MainController extends Controller
 
     public function shousai(Request $Request)
     {
-        $tasks = new Task();
+        $text_id = $Request->text_id;
 
-        dd($Request->text_id);
-        $db_id = $tasks->id;
+        $db_text = Task::where('id', '=', $text_id)->get();
 
-        $db_texts = Task::where('text_id', '=', '$db_id')->get();
+        return view('shousai' ,compact('db_text'));
         
     }
 } 
