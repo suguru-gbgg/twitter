@@ -28,4 +28,14 @@ class MainController extends Controller
        
         return view('index' ,compact('db_texts'));
     }
+
+    public function shousai(Request $Request)
+    {
+        $text_id = $Request->text_id;
+
+        $db_text = Task::where('id', '=', $text_id)->get();
+
+        return view('shousai' ,compact('db_text'));
+        
+    }
 } 
