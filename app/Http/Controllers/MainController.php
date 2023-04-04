@@ -38,4 +38,16 @@ class MainController extends Controller
         return view('shousai' ,compact('db_text'));
         
     }
+
+    public function sakujo(Request $Request)
+    {
+        $text_id = $Request->text_id;
+        
+        Task::where('id', '=', $text_id)->delete();
+
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
+
+        return view('index' ,compact('db_texts'));
+        
+    }
 } 
