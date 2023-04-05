@@ -29,4 +29,3 @@ Route::get('/index', [App\Http\Controllers\MainController::class, 'front'])->nam
 Route::post('/shousai', [App\Http\Controllers\MainController::class, 'shousai'])->name('shousai');
 Route::get('/shousai', [App\Http\Controllers\MainController::class, 'shousai'])->name('shousai');
 Route::post('/sakujo', [App\Http\Controllers\MainController::class, 'sakujo'])->name('sakujo');
-Route::get('/sakujo', [App\Http\Controllers\MainController::class, 'sakujo'])->name('sakujo');
