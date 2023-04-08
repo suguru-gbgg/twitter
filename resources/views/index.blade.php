@@ -34,7 +34,8 @@
                     <input type="hidden" name="text_id" value="{{ $db_text->id }}">
                   </li>
                 </form>
-                <form action="delete" method="post">
+                <form action="sakujo" method="post">
+                @csrf
                   <li>
                     <button type="submit" class="dropdown-item">削除</button>
                     <input type="hidden" name="text_id" value="{{ $db_text->id }}">
