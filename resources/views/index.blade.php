@@ -8,10 +8,10 @@
       <div class="card">
         <div class="card-body text-center">
           <p class="card-text">
-            <textarea id="text" cols="33" rows="5" class="text-center" value="" name="text"></textarea>
+            <textarea id="text" cols="33" rows="5" class="text-center form-control" value="" name="text"></textarea>
           </p>
           <input type="hidden" name="user_name" value="{{ Auth::user()->name; }}" id="user_name">
-          <button type="submit" id="addbtn" class="btn btn-outline-primary text-center">ツイート</a>
+          <button type="submit" id="addbtn" class="btn btn-outline-primary text-center">ツイート</button>
         </div>
       </div>
     </div>
@@ -19,10 +19,11 @@
   <div class="parent">
     <?php $i=0; ?>
     @foreach ($db_texts as $db_text)
-      <div class="card my-3 mx-auto" style="width: 20rem;">
+      <div class="card my-3 mx-auto" style="width: 20rem; height: 15rem; overflow: hidden;" >
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">{{ $db_text->user_name }}</li>
-          <li class="list-group-item text-center">{{ $db_text->text }}
+        <div class="card-header text-center">{{ $db_text->user_name }}</div>
+          <li class="list-group-item text-center" style="height: 10rem; my-auto">{{ $db_text->text }}</li>
+          <li class="list-group-item text-center">
             <input type="hidden" value="{{ $db_text->id }}" name="text_id">
             <div class="dropdown">
               <h7 class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></h7>
@@ -31,6 +32,13 @@
                 @csrf
                   <li>
                     <button type="submit" class="dropdown-item">詳細</button>
+                    <input type="hidden" name="text_id" value="{{ $db_text->id }}">
+                  </li>
+                </form>
+                <form action="hennshuu" method="post">
+                @csrf
+                  <li>
+                    <button type="submit" class="dropdown-item">編集</button>
                     <input type="hidden" name="text_id" value="{{ $db_text->id }}">
                   </li>
                 </form>
