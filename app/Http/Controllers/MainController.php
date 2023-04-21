@@ -50,4 +50,29 @@ class MainController extends Controller
         return view('index' ,compact('db_texts'));
         
     }
+
+    public function hennshuu(Request $Request)
+    {
+        $text_id = $Request->text_id;
+
+        $db_text = Task::where('id', '=', $text_id)->get();
+
+        return view('hennshuu',compact('db_text'));
+        
+    }
+
+    public function kousin(Request $Request)
+    {
+        $text_id = $Request->text_id;
+        $h_text =  $Request->text;
+    
+        Task::where('id', '=', $text_id)->update([
+            'text' =>  $h_text,
+        ]);
+
+        $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
+
+        return view('index' ,compact('db_texts'));
+   
+    }
 } 
