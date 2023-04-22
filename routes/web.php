@@ -31,3 +31,4 @@ Route::get('/shousai', [App\Http\Controllers\MainController::class, 'shousai'])-
 Route::post('/sakujo', [App\Http\Controllers\MainController::class, 'sakujo'])->name('sakujo');
 Route::post('/hennshuu', [App\Http\Controllers\MainController::class, 'hennshuu'])->name('hennshuu');
 Route::post('/kousin', [App\Http\Controllers\MainController::class, 'kousin'])->name('kousin');
+Route::post('/profile', [App\Http\Controllers\MainController::class, 'profile'])->name('profile');

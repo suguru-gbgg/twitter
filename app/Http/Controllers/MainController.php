@@ -36,7 +36,6 @@ class MainController extends Controller
         $db_text = Task::where('id', '=', $text_id)->get();
 
         return view('shousai' ,compact('db_text'));
-        
     }
 
     public function sakujo(Request $Request)
@@ -48,7 +47,6 @@ class MainController extends Controller
         $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return view('index' ,compact('db_texts'));
-        
     }
 
     public function hennshuu(Request $Request)
@@ -58,7 +56,6 @@ class MainController extends Controller
         $db_text = Task::where('id', '=', $text_id)->get();
 
         return view('hennshuu',compact('db_text'));
-        
     }
 
     public function kousin(Request $Request)
@@ -73,6 +70,14 @@ class MainController extends Controller
         $db_texts = Task::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return view('index' ,compact('db_texts'));
-   
+    }
+
+    public function profile(Request $Request)
+    {
+        $user_id = $Request->user_id;
+       
+        $db_texts = Task::where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
+    
+        return view('profile' ,compact('db_texts'));
     }
 } 

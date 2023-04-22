@@ -61,6 +61,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <form action="profile" method="post">
+                                        @csrf
+                                        <li>
+                                            <button type="submit" class="dropdown-item">プロフィール</button>
+                                            @foreach ($db_texts as $db_text)
+                                            <input type="hidden" name="user_id" value="{{ $db_text->user_id }}">
+                                            @endforeach 
+                                        </li>
+                                    </form>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
