@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($db_text as $db_text)
+    @foreach ($db_texts as $db_text)
         <div class="card mx-auto" style="width: 500px;  height: 300px;">
             <div class="card-header text-center">
                 {{ $db_text->user_name }}
