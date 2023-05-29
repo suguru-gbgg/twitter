@@ -40,13 +40,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('登録') }}</a>
                                 </li>
                             @endif
                         @else
@@ -59,15 +59,13 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('ログアウト') }}
                                     </a>
                                     <form action="profile" method="post">
-                                        @csrf
+                                    @csrf
                                         <li>
                                             <button type="submit" class="dropdown-item">プロフィール</button>
-                                            @foreach ($db_texts as $db_text)
-                                            <input type="hidden" name="user_id" value="{{ $db_text->user_id }}">
-                                            @endforeach 
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id; }}">
                                         </li>
                                     </form>
 

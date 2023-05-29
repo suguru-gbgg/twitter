@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($db_text as $db_text)
+    @foreach ($db_texts as $db_text)
         <form action="kousin" method="post">
         @csrf
             <div class="card mx-auto" style="width: 500px;  min-height: 300px;">

@@ -32,3 +32,6 @@ Route::post('/sakujo', [App\Http\Controllers\MainController::class, 'sakujo'])->
 Route::post('/hennshuu', [App\Http\Controllers\MainController::class, 'hennshuu'])->name('hennshuu');
 Route::post('/kousin', [App\Http\Controllers\MainController::class, 'kousin'])->name('kousin');
 Route::post('/profile', [App\Http\Controllers\MainController::class, 'profile'])->name('profile');
+Route::post('/self_intr', [App\Http\Controllers\MainController::class, 'self_intr'])->name('self_intr');
+Route::post('/MainController', [App\Http\Controllers\MainController::class, 'self_insert'])->name('self_insert');
+Route::post('/MainController', [App\Http\Controllers\MainController::class, 'self_update'])->name('self_update');
